@@ -1,16 +1,17 @@
 <%= form_for @blog, :url => {:controller => 'blogs', :action => 'update', :id => @blog} do |f| %>
-    <p>
-      <%= f.label :title, 'Title' %>
-      <%= f.text_field :title %>
-    </p>
-    <p>
-      <%= f.label :author, 'Author' %>
-      <%= f.text_field :author %>
-    </p>
-    <p>
-      <%= f.label :content, 'Content' %>
-      <%= f.text_area :content %>
-    </p>
+    <!--<p>-->
+      <!--<%= f.label :title, 'Title' %>-->
+      <!--<%= f.text_field :title %>-->
+    <!--</p>-->
+    <!--<p>-->
+      <!--<%= f.label :author, 'Author' %>-->
+      <!--<%= f.text_field :author %>-->
+    <!--</p>-->
+    <!--<p>-->
+      <!--<%= f.label :content, 'Content' %>-->
+      <!--<%= f.text_area :content %>-->
+    <!--</p>-->
+    <%= render :partial => 'form', :locals => { :f => f } %>
     <p>
       <%= f.submit 'Update' %>
     </p>
