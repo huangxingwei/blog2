@@ -1,4 +1,7 @@
 class BlogsController < ApplicationController
+
+  before_filter :find_blog, :only => [ :show, :edit, :update, :destroy ]
+
   #show all blogs
   def index
     # @blogs = Blogs.all
@@ -23,17 +26,17 @@ class BlogsController < ApplicationController
 
   #show a blog
   def show
-    @blog = Blogs.find(params[:id])
+    # @blog = Blogs.find(params[:id])
   end
 
   #edit a blog
   def edit
-    @blog = Blogs.find(params[:id])
+    # @blog = Blogs.find(params[:id])
   end
 
   #update a blog
   def update
-    @blog = Blogs.find(params[:id])
+    # @blog = Blogs.find(params[:id])
     # @blog.update_attributes(params[:blogs])
     # redirect_to :action => :show, :id => @blog
     if @blog.update_attributes(params[:blogs])
@@ -45,9 +48,16 @@ class BlogsController < ApplicationController
 
   #destroy a blog
   def destroy
-    @blog = Blogs.find(params[:id])
+    # @blog = Blogs.find(params[:id])
     @blog.destroy
 
     redirect_to :action => 'index'
+  end
+
+  #find a blog
+  protected
+
+  def find_blog
+    @blog = Blogs.find(params[:id])
   end
 end
