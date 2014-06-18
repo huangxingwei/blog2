@@ -1,0 +1,53 @@
+class BlogsController < ApplicationController
+  #show all blogs
+  def index
+    # @blogs = Blogs.all
+    @blogs = Blogs.page(params[:page]).per(5)
+  end
+  #new blog
+  def new
+    @blog = Blogs.new
+  end
+
+  #create
+  def create
+    @blog = Blogs.new(params[:blogs])
+    # @blog.save
+    # redirect_to :action => 'index'
+    if @blog.save
+      redirect_to :action => 'index'
+    else
+      redirect_to :action => 'new'
+    end
+  end
+
+  #show a blog
+  def show
+    @blog = Blogs.find(params[:id])
+  end
+
+  #edit a blog
+  def edit
+    @blog = Blogs.find(params[:id])
+  end
+
+  #update a blog
+  def update
+    @blog = Blogs.find(params[:id])
+    # @blog.update_attributes(params[:blogs])
+    # redirect_to :action => :show, :id => @blog
+    if @blog.update_attributes(params[:blogs])
+      redirect_to :action => :show, :id => @blog
+    else
+      redirect_to :action => :edit, :id => @blog
+    end
+  end
+
+  #destroy a blog
+  def destroy
+    @blog = Blogs.find(params[:id])
+    @blog.destroy
+
+    redirect_to :action => 'index'
+  end
+end

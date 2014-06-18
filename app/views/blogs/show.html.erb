@@ -1,0 +1,12 @@
+<p>
+  <%= @blog.title %>
+</p>
+<p>
+  <%= @blog.author %>
+</p>
+<p>
+  <%= simple_format(@blog.content) %>
+</p>
+<p>
+  <%= link_to 'Back to index', :controller => 'blogs', :action => 'index' %>
+</p>

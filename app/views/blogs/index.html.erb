@@ -1,0 +1,12 @@
+<ul>
+  <% @blogs.each do |blog| %>
+    <li>
+      <%= blog.title %>
+      <%= link_to 'Show', :controller => 'blogs', :action => 'show', :id => blog %>
+      <%= link_to 'Edit', :controller => 'blogs', :action => 'edit', :id => blog %>
+      <%= link_to 'Delete', :controller => 'blogs', :action => 'destroy', :id => blog %>
+    </li>
+  <% end %>
+  <%= paginate @blogs %>
+</ul>
+<%= link_to 'New Blog', :controller => 'blogs', :action => 'new' %>
