@@ -6,10 +6,12 @@ class BlogsController < ApplicationController
   def index
     # @blogs = Blogs.all
     @blogs = Blogs.page(params[:page]).per(5)
+    @page_title = 'Blogs List'
   end
   #new blog
   def new
     @blog = Blogs.new
+    @page_title = 'New a Blog'
   end
 
   #create
@@ -27,11 +29,13 @@ class BlogsController < ApplicationController
   #show a blog
   def show
     # @blog = Blogs.find(params[:id])
+    @page_title = @blog.title
   end
 
   #edit a blog
   def edit
     # @blog = Blogs.find(params[:id])
+    @page_title = 'Edit blog - ' + @blog.title
   end
 
   #update a blog
