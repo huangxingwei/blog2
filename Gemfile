@@ -43,4 +43,4 @@ gem 'jquery-rails'
 # To use debugger
 
 gem 'therubyracer'
-gem "kaminari"
+# gem 'kaminari'
